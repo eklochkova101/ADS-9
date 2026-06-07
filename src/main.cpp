@@ -5,6 +5,7 @@
 #include <iostream>
 #include <random>
 #include <vector>
+#include <string>
 #include "tree.h"
 
 void displaySequence(const std::vector<char>& seq) {
@@ -60,17 +61,20 @@ int main() {
     auto timePoint1 = std::chrono::high_resolution_clock::now();
     volatile auto completeSet = getAllPerms(tree);
     auto timePoint2 = std::chrono::high_resolution_clock::now();
-    double elapsedAll = std::chrono::duration<double, std::micro>(timePoint2 - timePoint1).count();
+    double elapsedAll = std::chrono::duration<double,
+      std::micro>(timePoint2 - timePoint1).count();
 
     timePoint1 = std::chrono::high_resolution_clock::now();
     volatile auto OneResult = getPerm1(tree, randomPermIndex);
     timePoint2 = std::chrono::high_resolution_clock::now();
-    double elapsedOne = std::chrono::duration<double, std::micro>(timePoint2 - timePoint1).count();
+    double elapsedOne = std::chrono::duration<double,
+      std::micro>(timePoint2 - timePoint1).count();
 
     timePoint1 = std::chrono::high_resolution_clock::now();
     volatile auto TwoResult = getPerm2(tree, randomPermIndex);
     timePoint2 = std::chrono::high_resolution_clock::now();
-    double elapsedTwo = std::chrono::duration<double, std::micro>(timePoint2 - timePoint1).count();
+    double elapsedTwo = std::chrono::duration<double,
+      std::micro>(timePoint2 - timePoint1).count();
     std::cout << std::left
       << std::setw(6) << alphabetSize
       << std::setw(16) << std::fixed << std::setprecision(2) << elapsedAll
